@@ -1,19 +1,11 @@
 function time() {
     var now = moment();
-
     var nowHour = now.format("h");
     nowHour = parseInt(nowHour);
-
-
-
-
     var index = [9, 10, 11, 12, 1, 2, 3, 4, 5];
     var high = [9, 10, 11, 12];
     var low = [1, 2, 3, 4, 5];
 
-
-
-    // $("#" + i).addClass(""); 
 
     for (var i = 0; i < 10; i++) {
         // Make everything Primary
@@ -57,24 +49,18 @@ function time() {
     $("#" + nowHour).addClass("bg-success");
 }
 
-
 // global variables
 var divEl = $(".container")
-
-
-
-divEl.on("submit", function(event){
+//on click or enter
+divEl.on("submit", function (event) {
     event.preventDefault();
     updated();
-    renderLastUpdated();
+
 
 })
 
-
-var updated = function(){
-    var todosLS = JSON.parse(localStorage.getItem("todos"));
-
-
+//updates Local Storage
+var updated = function () {
     var time9 = $("#9");
     var time10 = $("#10");
     var time11 = $("#11");
@@ -92,60 +78,32 @@ var updated = function(){
         value1: time1.val(),
         value2: time2.val(),
         value3: time3.val(),
-        value3: time4.val(),
-        value4: time5.val(),
-    
+        value4: time4.val(),
+        value5: time5.val(),
+
     };
-   
-
     localStorage.setItem("todosLS", JSON.stringify(todos))
-}
-
-
-var renderLastUpdated = function(){
-    console.log("Helloo")
-
-
-    var todos = JSON.parse(localStorage.getItem("todosLS")); 
-    console.log(todos + " Something supposed to be here")
-
-
-    if(todos !== null){
-            $("#9").val(todos.value9);
-            $("#10").val(todos.value10);
-            $("#11").val(todos.value11);
-            $("#12").val(todos.value12);
-            $("#1").val(todos.value1);
-            $("#2").val(todos.value2);
-            $("#3").val(todos.value3);
-            $("#4").val(todos.value4);
-            $("#5").val(todos.value5);
-        }
-    
-
 
 }
 
+//pulls last info for local storage
+var renderLastUpdated = function () {
+    var todos = JSON.parse(localStorage.getItem("todosLS"));
+    if (todos !== null) {
+        $("#9").val(todos.value9);
+        $("#10").val(todos.value10);
+        $("#11").val(todos.value11);
+        $("#12").val(todos.value12);
+        $("#1").val(todos.value1);
+        $("#2").val(todos.value2);
+        $("#3").val(todos.value3);
+        $("#4").val(todos.value4);
+        $("#5").val(todos.value5);
+    }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+}
 
 
 time();
-
+renderLastUpdated();
 
