@@ -65,7 +65,14 @@ var divEl = $(".container")
 
 divEl.on("submit", function(event){
     event.preventDefault();
-    console.log("Hello World")
+    updated();
+    renderLastUpdated();
+
+})
+
+
+var updated = function(){
+    var todosLS = JSON.parse(localStorage.getItem("todos"));
 
 
     var time9 = $("#9");
@@ -78,24 +85,46 @@ divEl.on("submit", function(event){
     var time4 = $("#4");
     var time5 = $("#5");
     var todos = {
-        value9: time9.value,
-        value10: time10.value,
-        value11: time11.value,
-        value12: time12.value,
-        value1: time1.value,
-        value2: time2.value,
-        value3: time3.value,
-        value3: time4.value,
-        value4: time5.value,
+        value9: time9.val(),
+        value10: time10.val(),
+        value11: time11.val(),
+        value12: time12.val(),
+        value1: time1.val(),
+        value2: time2.val(),
+        value3: time3.val(),
+        value3: time4.val(),
+        value4: time5.val(),
     
     };
+   
 
-    console.log(time9.value + " there is something here i swear");
+    localStorage.setItem("todosLS", JSON.stringify(todos))
+}
 
-    console.log(todos);
 
-    localStorage.setItem("todos", JSON.stringify(todos))
-})
+var renderLastUpdated = function(){
+    console.log("Helloo")
+
+
+    var todos = JSON.parse(localStorage.getItem("todosLS")); 
+    console.log(todos + " Something supposed to be here")
+
+
+    if(todos !== null){
+            $("#9").val(todos.value9);
+            $("#10").val(todos.value10);
+            $("#11").val(todos.value11);
+            $("#12").val(todos.value12);
+            $("#1").val(todos.value1);
+            $("#2").val(todos.value2);
+            $("#3").val(todos.value3);
+            $("#4").val(todos.value4);
+            $("#5").val(todos.value5);
+        }
+    
+
+
+}
 
 
 
