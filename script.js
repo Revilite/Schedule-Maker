@@ -61,34 +61,36 @@ function time() {
 // global variables
 var divEl = $(".container")
 
-var time9 = $("#9");
-var time10 = $("#10");
-var time11 = $("#11");
-var time12 = $("#12");
-var time1 = $("#1");
-var time2 = $("#2");
-var time3 = $("#3");
-var time4 = $("#4");
-var time5 = $("#5");
-var todos = {
-    value9: time9.value,
-    value10: time10.value,
-    value11: time11.value,
-    value12: time12.value,
-    value1: time1.value,
-    value2: time2.value,
-    value3: time3.value,
-    value3: time4.value,
-    value4: time5.value,
 
-};
 
 divEl.on("submit", function(event){
     event.preventDefault();
     console.log("Hello World")
-  
 
 
+    var time9 = $("#9");
+    var time10 = $("#10");
+    var time11 = $("#11");
+    var time12 = $("#12");
+    var time1 = $("#1");
+    var time2 = $("#2");
+    var time3 = $("#3");
+    var time4 = $("#4");
+    var time5 = $("#5");
+    var todos = {
+        value9: time9.value,
+        value10: time10.value,
+        value11: time11.value,
+        value12: time12.value,
+        value1: time1.value,
+        value2: time2.value,
+        value3: time3.value,
+        value3: time4.value,
+        value4: time5.value,
+    
+    };
+
+    console.log(time9.value + " there is something here i swear");
 
     console.log(todos);
 
