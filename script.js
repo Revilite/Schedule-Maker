@@ -1,35 +1,44 @@
 function time(){
 var now = moment();
 var amCheck ="AM"
-var nowHour = "10";
+var nowHour = "12";
 
 
-var index = ["9", "10", "11", "12", "1", "2", "3", "4", "5"];
-var high = ["9", "10", "11", "12"];
-var low = ["1", "2", "3", "4", "5"];
+var index = [9, 10, 11, 12, 1, 2, 3, 4, 5];
+var high = [9, 10, 11, 12];
+var low = [1, 2, 3, 4, 5];
 // var amCheck = now.calendar();
 // var nowHour = now.format("h");
+nowHour = parseInt(nowHour);
+
 console.log(nowHour)
 
 // $("#" + i).addClass(""); 
 
-for(var i = 0; i < 13; i++){
+for(var i = 0; i < 9; i++){
+    // Make everything Primary
+    $("#" + index[i]).addClass("bg-primary");
+}
+
     // Changes current time bg
-    if (nowHour == i){
-        $("#" + nowHour).addClass("bg-success");
-    }
+    $("#" + nowHour).addClass("bg-success");
+
+for(var i = 0; i < high.length; i++){
     // Select what has passed
-    else if(high.includes(nowHour)){
+     if(high[i] <  nowHour){
+        console.log("True")
         $("#" + high[i]).addClass("bg-secondary");
     }
-    else if (low.includes(nowHour)){
-        $("#" + low[i - 2]).addClass("bg-secondary");
+    else{
+        $("#" + index[i]).addClass("bg-primary");
     }
-    // Make rest Primary
-    $("#" + index[i]).addClass("bg-primary");
-    
-
 }
+
+
+
+    // Changes current time bg
+$("#" + nowHour).addClass("bg-success");
+
 
 console.log(high.includes(nowHour))
 console.log(low.includes(nowHour))
